@@ -36,7 +36,71 @@ In this document, I summarize the main optimal solution approaches for common co
 
 \section{Interview Toolbox}
 
-\subsection{Primitive Types}
+\subsection{Primitive Types / Bit Tricks}
+
+\paragraph{Remove lowest set bit in $x$}
+$$x = x \& (x-1)$$
+
+\paragraph{Isolate lowest set bit in $x$}
+$$x \& ~(x-1)$$
+
+\paragraph{Extract i-th bit of $x$}
+$$x \& (1 << i)$$
+
+\paragraph{Swap bits}
+Only needed if the bits are not the same. If needed, it's like flipping bits:
+$$x \wedge = ((1 << i) | (1 << j))$$
+
+\paragraph{Reverse bits}
+Use precomputed lookup table for 16-bit words.
+If $x = y_1 y_2 y_3 y_4$, then $\text{rev}(x) = \text{rev}(y_4) \text{rev}(y_3) \text{rev}(y_2) \text{rev}(y_1) $.
+Useful for this: $0xFFFF = 65535 = 2^{16}-1 = 1111.1111.1111.1111$ (16 ones)
+
+\paragraph{Closest integer with same number of ones}
+If we flip bits at index $i$ and $j$, the absolute difference is $|2^i - 2^j|$.
+Thus, we need to swap the two rightmost consecutive bits that differ.
+
+\paragraph{$x*y$ without arithmetic operations}
+Add using bitwise operations. Multiply using shift-and-add (grade-school) algorithm.
+
+\paragraph{$x/y$ using only +, -, and bitshifts}
+Idea: Find largest $k$ such that $2^k * y \leq x$, substract $2^k$ fom $x$, and add $2^k$ to the quotient.
+
+\paragraph{Compute $x^y$}
+If $y$ is negative, replace $x$ by $1/x$ and $y$ by $-y$.
+Idea: $(x^\frac{y}{2})^2$ or $x * (x^\frac{y}{2})^2$
+
+\paragraph{Check if decimal is palindrome}
+A negative number can't be palindromic.
+
+\begin{itemize}
+	\item Number of digits in integer $x$:
+$$n = \lfloor \log_10(x) \rfloor + 1$$
+
+	\item Least significant (last) digit in integer $x$:
+$$x \mod 10$$
+
+	\item Most significant digit in integer $x$:
+$$\frac{x}{10^{(\lfloor \log_10 x \rfloor + 1)}}$$
+
+	\item Remove most significant digit:
+$$x = x \mod 10^{\text{num\_digits - 1}}$$
+
+	\item Remove least significant digit:
+$$x = x / 10$$
+\end{itemize}
+
+\paragraph{Generate uniform random numbers in range $[a,b]$ given random 0/1 values}
+Same as in range $[0, b-a]$.
+
+Easy if $[b-a] = 2^i - 1$ for some $i$: Generate each bit of a $i$-bit number.
+
+Otherwise, search smallest $i$ such that $2^i - 1 \geq b - a$, and redo generation if out of range.
+
+
+\paragraph{Rectangle intersection (parallel to x- and y-axis)}
+Focus on when rectangles \textbf{don't} intersect, handle x- and y-dimension separately.
+
 \subsection{Arrays}
 \subsection{Linked Lists}
 \subsection{Stacks}
