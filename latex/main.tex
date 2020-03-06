@@ -20,7 +20,7 @@
 \begin{document}
 %
 \title{Optimal Solutions to Common Interview Problems}
-\subtitle{A Summary of Chapter II.Problems of the EPI book}
+\subtitle{A Summary of Chapter II.Problems of the EPI book, as well as stuff I found interesting}
 
 \author{Sarah Lutteropp}
 
@@ -70,6 +70,13 @@ Idea: Find largest $k$ such that $2^k * y \leq x$, substract $2^k$ fom $x$, and 
 If $y$ is negative, replace $x$ by $1/x$ and $y$ by $-y$.
 Idea: $(x^\frac{y}{2})^2$ or $x * (x^\frac{y}{2})^2$
 
+\paragraph{Properties of XOR}
+\begin{itemize}
+\item If two numbers where both numbers have odd number of set bits in it then its XOR will have even number of set bits in it.
+\item If two numbers where both numbers have even number of set bits in it then its XOR will have even number of set bits in it.
+\item If two numbers where one number has even number of set bits and another has odd number of set bits then its XOR will have odd number of set bits in it.
+\end{itemize}
+
 \paragraph{Check if decimal is palindrome}
 A negative number can't be palindromic.
 
@@ -116,6 +123,10 @@ Focus on when rectangles \textbf{don't} intersect, handle x- and y-dimension sep
 \subsection{Greedy Algorithms}
 \subsection{Invariants}
 \subsection{Graphs}
+
+\subsection(Computational Geometry}
+\paragraph{Compute area within polygon given its vertices}
+Shoelace formula
 
 \section{Cool C++ features}
 
