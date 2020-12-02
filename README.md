@@ -5,4 +5,4 @@ I have also added some additional topics to the summary, such as segment trees, 
 
 Use the PDFs! I once started, but never finished the LaTeX version.
 
-(The Honors Class summary will be updated once I get access to a large scanner again...)
+(The Honors Class summary file will be updated once I get access to a large scanner again...)
